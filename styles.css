@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
     margin: 0;
@@ -15,23 +15,23 @@ html {
 .container {
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr;
     grid-gap: 15px;
+    grid-template-areas: 
+    "nav header"
+    "nav main";
 }
 
 header {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
+    grid-area: header;
 }
 
 nav {
-    grid-column: 1 / 2;
-    grid-row: 1 / span 2;
-    height: 500px;
+    grid-area: nav;
 }
 
 main {
-    grid-column: 2 / 3;
+    grid-area: main;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-gap: 15px;
@@ -70,7 +70,9 @@ article {
 
 header {
     padding: 0.5rem;
-    background-color: #c084fc;
+    background-color: #d8b4fe;
+    display: grid;
+    height: fit-content;
 }
 
 .header-top {
@@ -80,15 +82,35 @@ header {
     justify-items: start;
 }
 
+label {
+    display: grid;
+    place-items: center;
+}
+
 input {
     width: 100%;
-    border-radius: 20px 20px;
+    border-radius: 25px 25px;
+    padding-left: 0.5rem;
+    font-size: 1.5rem;
+    background-color: #c084fc;
+    border: 1px solid black;
+}
+
+input:focus {
+    outline: none;
+}
+
+.notifications #profile-img {
+    width: 75px;
+    height: auto;
+    background-color: #f0abfc;
+    border-radius: 50%;
 }
 
 #profile-img {
     width: 100px;
     height: auto;
-    border: 1px solid black;
+    background-color: #f0abfc;
     border-radius: 50%;
 }
 
@@ -96,7 +118,8 @@ input {
     display: grid;
     grid-template-columns: 1fr 20fr;
     justify-items: center;
-    grid-gap: 50px;
+    grid-gap: 10px;
+    margin-left: 1rem;
 }
 
 .notifications {
@@ -104,14 +127,46 @@ input {
     justify-items: center;
     grid-template-columns: 1fr 1fr 2fr;
     align-items: center;
-}
-
-.notifications p {
-    width: fit-content;
+    grid-gap: 1rem;
 }
 
 .icon {
     height: 40px;
+}
+
+.header-bottom {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+}
+
+.account-name {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.account-name .greet {
+    margin-left: 10px;
+}
+
+.create-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.create-content button {
+    height: 2.5rem;
+    width: 150px;
+    border-radius: 20px;
+    background-color: #a855f7;
+    cursor: pointer;
+    border: solid 1px black;
+    font-size: 1.2rem;
+    color: #f3e8ff;
 }
 
 /* header, nav, main, aside {
