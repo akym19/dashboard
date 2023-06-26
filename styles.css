@@ -29,6 +29,7 @@ header {
     background-color: #d8b4fe;
     display: grid;
     height: fit-content;
+    box-shadow: 1px 1px 10px #1f2937;
 }
 
 .header-top {
@@ -148,17 +149,33 @@ nav ul {
 ul li {
     display: flex;
     align-items: center;
+    border-radius: 8px;
+    transition: all 0.2s;
 }
 
 ul li img {
     height: 1.5rem;
     margin-left: 1rem;
+    filter: invert(85%) sepia(20%) saturate(517%) hue-rotate(207deg) brightness(104%) contrast(104%);
 }
 
-nav ul a {
+ul li a {
     text-decoration: none;
     color: #f3e8ff;
     margin-left: 1rem;
+    transition: all 0.2s;
+}
+
+ul li:hover {
+    background-color: #c084fc;
+}
+
+ul li:hover a {
+    color: black;
+}
+
+ul li:hover img {
+    filter: none;
 }
 
 nav #dashboard-icon {
