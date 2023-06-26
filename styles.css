@@ -12,7 +12,7 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
-.container {
+body {
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: auto 1fr;
@@ -39,13 +39,22 @@ header {
     justify-items: start;
 }
 
+.search {
+    display: grid;
+    grid-template-columns: 1fr 20fr;
+    justify-items: center;
+    grid-gap: 10px;
+    margin-left: 1rem;
+}
+
 label {
     display: grid;
     place-items: center;
 }
 
 input {
-    width: 100%;
+    justify-self: start;
+    width: 80%;
     border-radius: 25px 25px;
     padding-left: 0.5rem;
     font-size: 1.5rem;
@@ -67,14 +76,6 @@ input:focus {
     width: 100px;
     height: auto;
     border-radius: 50%;
-}
-
-.search {
-    display: grid;
-    grid-template-columns: 1fr 20fr;
-    justify-items: center;
-    grid-gap: 10px;
-    margin-left: 1rem;
 }
 
 .notifications {
@@ -115,7 +116,7 @@ input:focus {
 
 .create-content button {
     height: 2.5rem;
-    width: 150px;
+    width: 100px;
     border-radius: 20px;
     background-color: #a855f7;
     cursor: pointer;
@@ -133,17 +134,17 @@ nav {
     grid-area: nav;
 
     display: grid;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(3, max-content);
     padding: 1rem;
-    grid-gap: 3rem;
+    grid-gap: 2rem;
     background-color: #701a75;
 }
 
 nav ul {
     list-style-type: none;
     display: grid;
-    font-size: 1.5rem;
-    grid-gap: 1.5rem;
+    font-size: 1.2rem;
+    grid-gap: 1rem;
 }
 
 ul li {
@@ -152,6 +153,14 @@ ul li {
     border-radius: 8px;
     transition: all 0.2s;
 }
+
+/* ul li --this does as above code-- {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.2s;
+} */
 
 ul li img {
     height: 1.5rem;
@@ -197,15 +206,6 @@ nav #title {
     color: #f3e8ff;
 }
 
-/* header, nav, main, aside {
-    width: 100%;
-    background-color: #a855f7;
-} */
-
-*{
-    outline: 1px solid black;
-}
-
 main {
     grid-area: main;
     
@@ -214,15 +214,60 @@ main {
     grid-gap: 15px;
 }
 /* --- --- --- --- MAIN CONTENTS --- --- --- --- */
-article {
+.article-contents {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 250px;
     grid-gap: 15px;
     justify-items: center;
     align-content: center;
+    padding-left: 2.5rem;
+
+}
+
+.article-title{
+    padding-left: 2.5rem;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .cards {
-    width: 100px;
-    height: 100px;
+    height: 250px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #c084fc;
+    display: grid;
+    border-left: 10px solid #701a75;
+    transition: all 0.3s;
+}
+
+.cards:hover {
+    scale: 1.05;
+    cursor: pointer;
+    background-color: #fcd34d;
+}
+
+.cards .project-description {
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+
+.interactions img {
+    width: 25px;
+}
+
+.interactions {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-gap: 10px;
+    justify-content: end;
+}
+
+*{
+    /* outline: 1px solid black; */
 }
