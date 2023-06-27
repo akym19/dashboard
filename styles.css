@@ -6,15 +6,12 @@
     box-sizing: border-box;
 }
 
-html {
-    height: 100vh;
+body {
+    min-height: 100vh;
     width: 100%;
     font-family: 'Poppins', sans-serif;
-}
-
-body {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 300px 1fr;
     grid-template-rows: auto 1fr;
     grid-row-gap: 15px;
     grid-template-areas: 
@@ -30,6 +27,11 @@ header {
     display: grid;
     height: fit-content;
     box-shadow: 1px 1px 10px #1f2937;
+
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .header-top {
@@ -138,20 +140,26 @@ nav {
     padding: 1rem;
     grid-gap: 2rem;
     background-color: #701a75;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    max-height: 100vh;
 }
 
 nav ul {
     list-style-type: none;
     display: grid;
     font-size: 1.2rem;
-    grid-gap: 1rem;
+    grid-gap: 0.5rem;
 }
 
-ul li {
+nav ul li {
     display: flex;
     align-items: center;
     border-radius: 8px;
     transition: all 0.2s;
+    padding: 5px 0;
 }
 
 /* ul li --this does as above code-- {
@@ -162,28 +170,28 @@ ul li {
     transition: all 0.2s;
 } */
 
-ul li img {
+nav ul li img {
     height: 1.5rem;
     margin-left: 1rem;
     filter: invert(85%) sepia(20%) saturate(517%) hue-rotate(207deg) brightness(104%) contrast(104%);
 }
 
-ul li a {
+nav ul li a {
     text-decoration: none;
     color: #f3e8ff;
     margin-left: 1rem;
     transition: all 0.2s;
 }
 
-ul li:hover {
+nav ul li:hover {
     background-color: #c084fc;
 }
 
-ul li:hover a {
+nav ul li:hover a {
     color: black;
 }
 
-ul li:hover img {
+nav ul li:hover img {
     filter: none;
 }
 
@@ -201,32 +209,35 @@ nav .logo {
 }
 
 nav #title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #f3e8ff;
 }
 
 main {
     grid-area: main;
-    
+    padding: 0 20px;
+    margin-top: 15px;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2.5fr 1fr;
     grid-gap: 15px;
 }
 /* --- --- --- --- MAIN CONTENTS --- --- --- --- */
 .article-contents {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-auto-rows: 250px;
     grid-gap: 15px;
     justify-items: center;
     align-content: center;
-    padding-left: 2.5rem;
-
 }
 
-.article-title{
-    padding-left: 2.5rem;
+.article-title, .trending-title, .announcements-title {
+    margin-bottom: 10px;
+}
+
+.trending-title {
+    margin-top: 10px;
 }
 
 .project-title {
@@ -240,6 +251,7 @@ main {
     border-radius: 12px;
     background-color: #c084fc;
     display: grid;
+    grid-gap: 15px;
     border-left: 10px solid #701a75;
     transition: all 0.3s;
 }
@@ -253,8 +265,13 @@ main {
 .cards .project-description {
     white-space: wrap;
     overflow: hidden;
+    height: max-content;
     text-overflow: ellipsis;
     text-align: justify;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
 }
 
 .interactions img {
@@ -266,6 +283,35 @@ main {
     grid-template-columns: repeat(3, max-content);
     grid-gap: 10px;
     justify-content: end;
+}
+
+aside ul {
+    list-style-type: none;
+    display: grid;
+    justify-content: center;
+}
+
+aside ul li {
+    padding: 10px 0;
+}
+
+aside ul p {
+    font-size: 0.8rem;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+aside ul li:nth-child(2) {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.announcements-content {
+    padding: 1.5rem;
+    background-color: #c084fc;
+    border-radius: 12px;
 }
 
 *{
