@@ -94,7 +94,7 @@ input:focus {
 
 .header-bottom {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 3fr 1fr;
     align-items: center;
 }
 
@@ -114,6 +114,7 @@ input:focus {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    grid-gap: 10px;
 }
 
 .create-content button {
@@ -129,7 +130,7 @@ input:focus {
 }
 
 .create-content button:hover {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 /* --- --- --- --- SIDEBAR --- --- --- --- */
 nav {
@@ -219,13 +220,14 @@ main {
     padding: 0 20px;
     margin-top: 15px;
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 1fr 350px;
     grid-gap: 15px;
+    margin-bottom: 15px;
 }
 /* --- --- --- --- MAIN CONTENTS --- --- --- --- */
 .article-contents {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-rows: 250px;
     grid-gap: 15px;
     justify-items: center;
@@ -254,16 +256,16 @@ main {
     grid-gap: 15px;
     border-left: 10px solid #701a75;
     transition: all 0.3s;
+    box-shadow: 5px 10px 15px #888888;
 }
 
 .cards:hover {
-    scale: 1.05;
+    transform: scale(1.05);
     cursor: pointer;
     background-color: #fcd34d;
 }
 
 .cards .project-description {
-    white-space: wrap;
     overflow: hidden;
     height: max-content;
     text-overflow: ellipsis;
@@ -296,14 +298,14 @@ aside ul li {
 }
 
 aside ul p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
-aside ul li:nth-child(2) {
+.announcements-content ul li:nth-child(2) {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
@@ -312,6 +314,27 @@ aside ul li:nth-child(2) {
     padding: 1.5rem;
     background-color: #c084fc;
     border-radius: 12px;
+    box-shadow: 5px 10px 15px #888888;
+}
+
+.trending-content {
+    padding: 1.5rem;
+    background-color: #c084fc;
+    border-radius: 12px;
+    box-shadow: 5px 10px 15px #888888;
+}
+
+.trending-content li {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    grid-gap: 5px;
+    align-items: center;
+}
+
+.trending-content img {
+    grid-row: 1 / span 2;
+    height: 5rem;
+    border-radius: 50%;
 }
 
 *{
